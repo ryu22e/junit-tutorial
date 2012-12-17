@@ -8,6 +8,13 @@ import org.junit.Test;
 import org.junit.experimental.runners.Enclosed;
 import org.junit.runner.RunWith;
 
+/**
+ * Eclipseでこのテストを動かすためには、Eclipseの設定画面 Java &gt; Installed JREs から<br />
+ * 使用しているJREを選んで、Editで「Default VM arguments」に「-Dsun.jnu.encoding=UTF-8」を指定する必要がある。<br />
+ * （でも、Quick JUnitからは動かせないっぽい＞＜）
+ * @author ryu22e
+ *
+ */
 @RunWith(Enclosed.class)
 public class ItemStockTest {
 
