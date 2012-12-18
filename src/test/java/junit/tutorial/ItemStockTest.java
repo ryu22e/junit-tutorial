@@ -23,7 +23,7 @@ public class ItemStockTest {
 
         @Before
         public void setUp() throws Exception {
-            sut = new ItemStock();
+            sut = new ItemStockImpl();
         }
 
         @Test
@@ -42,7 +42,7 @@ public class ItemStockTest {
 
         @Before
         public void setUp() throws Exception {
-            sut = new ItemStock();
+            sut = new ItemStockImpl();
             sut.add("A", 1);
         }
 
