@@ -14,7 +14,25 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   
+  <repositories>
+      <repository>
+          <id>Sonatype-public</id>
+          <name>SnakeYAML repository</name>
+          <url>http://oss.sonatype.org/content/groups/public/</url>
+      </repository>
+  </repositories>
+  
   <build>
+      <testResources>
+        <testResource>
+            <filtering>false</filtering>
+            <directory>src/test/java</directory>
+            <includes>
+                <include>**/*.java</include>
+                <include>**/*.yaml</include>
+            </includes>
+        </testResource>
+      </testResources>
       <pluginManagement>
           <plugins>
               <plugin>
@@ -27,8 +45,34 @@
                       <target>1.6</target>
                   </configuration>
               </plugin>
+              <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+              </plugin>
           </plugins>
       </pluginManagement>
+      <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <includes>
+                <include>**/*.java</include>
+                <include>**/*.yaml</include>
+              </includes>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-eclipse-plugin</artifactId>
+            <configuration>
+                <downloadSources>true</downloadSources>
+                <sourceIncludes>
+                    <sourceInclude>**/*.yaml</sourceInclude>
+                </sourceIncludes>
+            </configuration>
+        </plugin>
+      </plugins>
   </build>
 
   <dependencies>
@@ -36,6 +80,12 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.yaml</groupId>
+      <artifactId>snakeyaml</artifactId>
+      <version>1.12-SNAPSHOT</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
