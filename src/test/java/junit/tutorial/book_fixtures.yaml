@@ -1,0 +1,5 @@
+!!junit.tutorial.Book
+author: {firstName: Martin, lastName: Fowler}
+price: 4500
+title: Refactoring
+
