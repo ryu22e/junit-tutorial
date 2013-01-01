@@ -10,4 +10,8 @@ public class Calculator {
             throw new IllegalArgumentException("divide by zero.");
         return (float) x / (float) y;
     }
+
+    public int add(int x, int y) {
+        return x + y;
+    }
 }
