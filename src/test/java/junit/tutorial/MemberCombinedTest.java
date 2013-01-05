@@ -1,5 +1,10 @@
 package junit.tutorial;
 
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import junit.tutorial.Member.Gender;
+
+import org.junit.Assume;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -13,11 +18,16 @@ public class MemberCombinedTest {
     public static Gender[] GENDERS = Gender.values();
 
     @Theory
-    public void canEntry(int age, Gender gender) throws Exception {
-        System.out.println("canEntry(" + age + ", " + gender + ")");
+    public void canEntryは25歳以下の女性の場合にtrueを返す(int age, Gender gender)
+            throws Exception {
+        Assume.assumeTrue(age <= 25 && gender == Gender.FEMALE);
+        assertThat(Member.canEntry(age, gender), is(true));
     }
 
-    public static enum Gender {
-        MALE, FEMALE;
+    @Theory
+    public void canEntryは25歳以下の女性でない場合にfalseを返す(int age, Gender gender)
+            throws Exception {
+        Assume.assumeTrue(25 < age || gender != Gender.FEMALE);
+        assertThat(Member.canEntry(age, gender), is(false));
     }
 }
