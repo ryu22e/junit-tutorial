@@ -21,13 +21,15 @@ public class MemberCombinedTest {
     public void canEntryは25歳以下の女性の場合にtrueを返す(int age, Gender gender)
             throws Exception {
         Assume.assumeTrue(age <= 25 && gender == Gender.FEMALE);
-        assertThat(Member.canEntry(age, gender), is(true));
+        String msg = "When age=" + age + ", gender=" + gender;
+        assertThat(msg, Member.canEntry(age, gender), is(true));
     }
 
     @Theory
     public void canEntryは25歳以下の女性でない場合にfalseを返す(int age, Gender gender)
             throws Exception {
         Assume.assumeTrue(25 < age || gender != Gender.FEMALE);
-        assertThat(Member.canEntry(age, gender), is(false));
+        String msg = "When age=" + age + ", gender=" + gender;
+        assertThat(msg, Member.canEntry(age, gender), is(false));
     }
 }
