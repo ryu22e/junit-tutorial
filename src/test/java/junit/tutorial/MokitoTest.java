@@ -35,4 +35,12 @@ public class MokitoTest {
         when(stub.get(2)).thenThrow(new IndexOutOfBoundsException());
         stub.get(2);
     }
+
+    @Test(expected = RuntimeException.class)
+    public void void型を返すスタブメソッド() throws Exception {
+        @SuppressWarnings("unchecked")
+        List<String> stub = mock(List.class);
+        doThrow(new RuntimeException()).when(stub).clear();
+        stub.clear();
+    }
 }
