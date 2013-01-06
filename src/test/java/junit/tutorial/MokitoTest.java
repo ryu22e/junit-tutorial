@@ -2,6 +2,7 @@ package junit.tutorial;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 import java.util.List;
 
@@ -15,5 +16,13 @@ public class MokitoTest {
         List<String> mock = Mockito.mock(List.class);
         assertThat(mock.get(0), is(nullValue()));
         assertThat(mock.contains("Hello"), is(false));
+    }
+
+    @Test
+    public void スタブメソッドの定義() throws Exception {
+        @SuppressWarnings("unchecked")
+        List<String> stub = mock(List.class);
+        when(stub.get(0)).thenReturn("Hello");
+        assertThat(stub.get(0), is("Hello"));
     }
 }
