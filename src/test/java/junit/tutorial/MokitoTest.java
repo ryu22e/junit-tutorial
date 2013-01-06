@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -65,5 +66,17 @@ public class MokitoTest {
         verify(mock).clear();
         verify(mock, times(2)).add("Hello");
         verify(mock, never()).add("World");
+    }
+
+    @Test
+    public void 部分的なモックオブジェクト() throws Exception {
+        // 初版の196ページ リスト11.29 のサンプルコードが間違っている？
+        List<String> mock = new ArrayList<String>();
+        List<String> spy = spy(mock);
+        when(spy.size()).thenReturn(100);
+        spy.add("Hello");
+
+        assertThat(spy.get(0), is("Hello"));
+        assertThat(spy.size(), is(100));
     }
 }
