@@ -6,6 +6,7 @@ import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.Test;
@@ -78,5 +79,18 @@ public class MokitoTest {
 
         assertThat(spy.get(0), is("Hello"));
         assertThat(spy.size(), is(100));
+    }
+
+    @Test
+    public void スパイオブジェクトの生成() throws Exception {
+        List<String> list = new LinkedList<String>();
+        List<String> spy = spy(list);
+        doReturn("Mockito").when(spy).get(1);
+        spy.add("Hello");
+        spy.add("World");
+        verify(spy).add("Hello");
+        verify(spy).add("World");
+        assertThat(spy.get(0), is("Hello"));
+        assertThat(spy.get(1), is("Mockito"));
     }
 }
