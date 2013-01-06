@@ -54,4 +54,16 @@ public class MokitoTest {
         assertThat(stub.get(1), is("Hello"));
         assertThat(stub.get(999), is("Hello"));
     }
+
+    @Test
+    public void スタブメソッドの検証() throws Exception {
+        @SuppressWarnings("unchecked")
+        List<String> mock = mock(List.class);
+        mock.clear();
+        mock.add("Hello");
+        mock.add("Hello");
+        verify(mock).clear();
+        verify(mock, times(2)).add("Hello");
+        verify(mock, never()).add("World");
+    }
 }
