@@ -44,7 +44,6 @@ public class UserDaoTest {
             assertThat(actual.size(), is(2));
             assertThat(actual.get(0), is("Ichiro"));
             assertThat(actual.get(1), is("Jiro"));
-            fail("test");
         }
 
         @Test
