@@ -12,3 +12,6 @@
 
 # Maven
 target/
+
+# H2 Database
+h2/

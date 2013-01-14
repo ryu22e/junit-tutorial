@@ -30,6 +30,7 @@
                 <includes>
                     <include>**/*.java</include>
                     <include>**/*.yaml</include>
+                    <include>**/*.xml</include>
                 </includes>
             </testResource>
         </testResources>
@@ -59,6 +60,7 @@
                     <includes>
                         <include>**/*.java</include>
                         <include>**/*.yaml</include>
+                        <include>**/*.xml</include>
                     </includes>
                 </configuration>
             </plugin>
@@ -69,6 +71,7 @@
                     <downloadSources>true</downloadSources>
                     <sourceIncludes>
                         <sourceInclude>**/*.yaml</sourceInclude>
+                        <sourceInclude>**/*.xml</sourceInclude>
                     </sourceIncludes>
                 </configuration>
             </plugin>
@@ -76,6 +79,11 @@
     </build>
 
     <dependencies>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.3.167</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -92,6 +100,12 @@
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>1.9.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.dbunit</groupId>
+            <artifactId>dbunit</artifactId>
+            <version>2.4.9</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
