@@ -17,7 +17,10 @@ import org.junit.Before;
 import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.experimental.runners.Enclosed;
+import org.junit.runner.RunWith;
 
+@RunWith(Enclosed.class)
 public class UserDaoTest {
 
     public static class usersに2件のレコードがある場合 {
@@ -41,6 +44,7 @@ public class UserDaoTest {
             assertThat(actual.size(), is(2));
             assertThat(actual.get(0), is("Ichiro"));
             assertThat(actual.get(1), is("Jiro"));
+            fail("test");
         }
 
         @Test
