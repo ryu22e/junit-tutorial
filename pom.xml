@@ -82,6 +82,11 @@
                     <excludedGroups>junit.tutorial.SlowTests</excludedGroups>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.5.7.201204190339</version>
+            </plugin>
         </plugins>
     </build>
 
