@@ -6,8 +6,8 @@ public class Card {
         DIAMONDS, SPADES, HEARTS, CLUBS;
     }
 
-    private final int no;
-    private final Suit suit;
+    public final int no;
+    public final Suit suit;
 
     Card(Suit suit, int no) {
         this.suit = suit;

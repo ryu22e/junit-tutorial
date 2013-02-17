@@ -34,4 +34,9 @@ public class PokerGameStepDefs {
         assertThat(result, is(Pat.NO_PAIR));
     }
 
+    @ならば("^(\\d+)のワンペアであるべき$")
+    public void ワンペアであるべき(int no) throws Throwable {
+        Pat expected = new Pat.OnePair(no);
+        assertThat(sut.pat(), is(expected));
+    }
 }
