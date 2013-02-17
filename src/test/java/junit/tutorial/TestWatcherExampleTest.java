@@ -47,8 +47,8 @@ public class TestWatcherExampleTest {
     public void 成功するテスト() throws Exception {
     }
 
+    @Ignore("動作確認のためにはコメントアウトしてください")
     @Test
-    @Ignore
     public void 失敗するテスト() throws Exception {
         fail("NG");
     }
